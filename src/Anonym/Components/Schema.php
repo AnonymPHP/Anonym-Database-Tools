@@ -1,74 +1,74 @@
 <?php
+/**
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @copyright AnonymMedya, 2015
+ */
+
+namespace Anonym\Components\Tools;
+
+use Exception;
+
+/**
+ * Class Schema
+ * @package Anonym\Components\Tools
+ */
+class Schema
+{
+
     /**
-     * @author vahitserifsaglam <vahit.serif119@gmail.com>
-     * @copyright AnonymMedya, 2015
+     * @var \PDO|\mysqli|null
      */
-
-    namespace Anonym\Components\Tools;
-
-    use Exception;
+    private $connection;
 
     /**
-     * Class Schema
-     * @package Anonym\Components\Tools
+     * @var Table
      */
-    class Schema
+    private $table;
+
+    /**
+     * @param null $connection
+     */
+    public function __construct($connection = null)
     {
+        $this->table = new Table();
+        $this->connection = $connection;
+    }
 
-        /**
-         * @var \PDO|\mysqli|null
-         */
-        private $connection;
+    /**
+     * Tablo oluşturur ve işler
+     * @param string $tableName
+     * @param callable $callback
+     * @return bool|\mysqli_result|\PDOStatement
+     * @throws Exception
+     */
+    public function create($tableName = '', callable $callback)
+    {
+        $table = $this->table;
+        $table->create($tableName);
 
-        /**
-         * @var Table
-         */
-        private $table;
+        // çağrı yapılıyor
+        $response = $callback($table);
 
-        /**
-         * @param null $connection
-         */
-        public function __construct($connection = null)
-        {
-            $this->table = new Table();
-            $this->connection = $connection;
+        if ($response instanceof TableInterface) {
+            $string = $response->fetch();
+            return $this->connection->query($string);
+
+        } else {
+            throw new Exception('%s %s den dönen veri bir TableInterface değil', __CLASS__, __FUNCTION__);
         }
+    }
 
-        /**
-         * Tablo oluşturur ve işler
-         * @param string $tableName
-         * @param callable $callback
-         * @return bool|\mysqli_result|\PDOStatement
-         * @throws Exception
-         */
-        public function create($tableName = '', callable $callback)
-        {
-            $table = $this->table;
-            $table->create($tableName);
-
-            // çağrı yapılıyor
-            $response = $callback($table);
-
-            if ($response instanceof TableInterface) {
-                $string = $response->fetch();
-                return $this->connection->query($string);
-
-            } else {
-                throw new Exception('%s %s den dönen veri bir TableInterface değil', __CLASS__, __FUNCTION__);
-            }
-        }
-
-        /**
-         * $tableName'e girilen tabloyu siler
-         *
-         * @param string $tableName
-         * @return bool|\mysqli_result|\PDOStatement
-         */
-        public function drop($tableName = '')
-        {
-            $query = $this->table->drop($tableName);
-            return $this->connection->query($query);
-
-        }
+    /**
+     * $tableName'e girilen tabloyu siler
+     *
+     * @param string $tableName
+     * @return bool|\mysqli_result|\PDOStatement
+     */
+    public function drop($tableName = '')
+    {
+        $query = $this->table->drop($tableName);
+        return $this->connection->query($query);
 
     }
+
+}

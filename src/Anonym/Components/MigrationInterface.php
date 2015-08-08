@@ -1,29 +1,29 @@
 <?php
+/**
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @copyright AnonymMedya, 2015
+ */
+
+namespace Anonym\Components\Tools;
+
+/**
+ * Interface MigrationInterface
+ * @package Anonym\Components\Tools\MigrationDatabase\Tools\Migration
+ */
+interface MigrationInterface
+{
+
     /**
-     * @author vahitserifsaglam <vahit.serif119@gmail.com>
-     * @copyright AnonymMedya, 2015
+     * Eklenecek verileri bu fonksiyon içinde ayalarýz
+     *
+     * @return mixed
      */
-
-    namespace Anonym\Components\Tools;
+    public function up();
 
     /**
-     * Interface MigrationInterface
-     * @package Anonym\Components\Tools\MigrationDatabase\Tools\Migration
+     * Silinecek verileri bu fonksiyon içinde ayarlarýz
+     *
+     * @return mixed
      */
-    interface MigrationInterface
-    {
-
-        /**
-         * Eklenecek verileri bu fonksiyon içinde ayalarýz
-         *
-         * @return mixed
-         */
-        public function up();
-
-        /**
-         * Silinecek verileri bu fonksiyon içinde ayarlarýz
-         *
-         * @return mixed
-         */
-        public function down();
-    }
+    public function down();
+}

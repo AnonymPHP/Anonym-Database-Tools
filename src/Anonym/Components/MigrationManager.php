@@ -1,91 +1,91 @@
 <?php
+/**
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @copyright AnonymMedya, 2015
+ */
+
+namespace Anonym\Components\Tools;
+
+use Anonym\Components\Database\Base;
+use Exception;
+use Symfony\Component\Finder\Finder;
+
+/**
+ * Class MigrationManager
+ * @package Anonym\Components\Tools
+ */
+class MigrationManager
+{
     /**
-     * @author vahitserifsaglam <vahit.serif119@gmail.com>
-     * @copyright AnonymMedya, 2015
+     * @var \PDO|\mysqli
      */
-
-    namespace Anonym\Components\Tools;
-
-    use Anonym\Components\Database\Base;
-    use Exception;
-    use Symfony\Component\Finder\Finder;
-
     /**
-     * Class MigrationManager
-     * @package Anonym\Components\Tools
+     * @var Base
      */
-    class MigrationManager
+    private $base;
+
+    public function createName($name = '')
     {
-        /**
-         * @var \PDO|\mysqli
-         */
-        /**
-         * @var Base
-         */
-        private $base;
+        return DATABASE . 'Migrations/' . $name . '.php';
+    }
 
-        public function createName($name = '')
-        {
-            return DATABASE . 'Migrations/' . $name . '.php';
-        }
+    /**
+     * Uygulamayı alır ve toplamaya başlar
+     */
+    public function __construct()
+    {
+        $this->base = new Base();
+        Singleton::make('Anonym\Components\Tools\MigrationDatabase\Tools\Migration\Schema', [$this->base->getConnection()]);
+    }
 
-        /**
-         * Uygulamayı alır ve toplamaya başlar
-         */
-        public function __construct()
-        {
-            $this->base = new Base();
-            Singleton::make('Anonym\Components\Tools\MigrationDatabase\Tools\Migration\Schema', [$this->base->getConnection()]);
-        }
+    /**
+     * Migration sınıfını yürütür
+     * @param null $name
+     * @return array
+     */
+    public function run($name = null)
+    {
 
-        /**
-         * Migration sınıfını yürütür
-         * @param null $name
-         * @return array
-         */
-        public function run($name = null)
-        {
+        if (null !== $name) {
+            $return = [$this->execute($name)];
+        } else {
 
-            if (null !== $name) {
-                    $return = [$this->execute($name)];
-            } else {
+            $list = Finder::create()->files()->name('*.php')->in(DATABASE . 'Migrations/');
 
-                $list = Finder::create()->files()->name('*.php')->in(DATABASE . 'Migrations/');
-
-                    foreach ($list as $l) {
-                        $return[] = $this->execute(first(explode('.', $l->getFilename())));
-                    }
+            foreach ($list as $l) {
+                $return[] = $this->execute(first(explode('.', $l->getFilename())));
             }
+        }
+
+        return $return;
+    }
+
+    /**
+     * @param string $name
+     * @throws Exception
+     * @return bool
+     */
+    public function execute($name = '')
+    {
+
+        $migration = "Application\Database\Migrations\\$name";
+        $migration = new $migration;
+
+        $return = [
+            'up' => null,
+            'down' => null,
+            'name' => $name
+        ];
+
+        if ($migration instanceof MigrationInterface) {
+            $return['up'] = $migration->up();
+            $return['down'] = $migration->down();
 
             return $return;
-        }
-
-        /**
-         * @param string $name
-         * @throws Exception
-         * @return bool
-         */
-        public function execute($name = '')
-        {
-
-            $migration = "Application\Database\Migrations\\$name";
-            $migration = new $migration;
-
-            $return = [
-                'up' => null,
-                'down' => null,
-                'name' => $name
-            ];
-
-            if ($migration instanceof MigrationInterface) {
-                $return['up'] = $migration->up();
-                $return['down'] = $migration->down();
-
-                return $return;
-            } else {
-                throw new Exception('migration sınıfınız MigrationInterface e sahip değil');
-            }
-
+        } else {
+            throw new Exception('migration sınıfınız MigrationInterface e sahip değil');
         }
 
     }
+
+}
