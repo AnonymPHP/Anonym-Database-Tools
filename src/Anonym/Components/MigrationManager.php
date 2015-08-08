@@ -24,12 +24,19 @@ class MigrationManager
      */
     private $base;
 
+    /**
+     * Dosya ismini oluşturur
+     *
+     * @param string $name
+     * @return string
+     */
     public function createName($name = '')
     {
         return DATABASE . 'Migrations/' . $name . '.php';
     }
 
     /**
+     *
      * Uygulamayı alır ve toplamaya başlar
      */
     public function __construct()

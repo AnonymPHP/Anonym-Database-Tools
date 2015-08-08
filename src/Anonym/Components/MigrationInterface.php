@@ -14,14 +14,14 @@ interface MigrationInterface
 {
 
     /**
-     * Eklenecek verileri bu fonksiyon içinde ayalarız
+     * Eklenecek verileri bu fonksiyon iÃ§inde ayarlarÄ±z
      *
      * @return mixed
      */
     public function up();
 
     /**
-     * Silinecek verileri bu fonksiyon içinde ayarlarız
+     * Silinecek verileri bu fonksiyon iÃ§inde ayarlarÄ±z
      *
      * @return mixed
      */
