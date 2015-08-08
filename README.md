@@ -11,6 +11,7 @@ Kullaným için
 
 define('MIGRATION', 'migrationDosyalarýnýnbuluanacaðýkonum');
 define('MIGRATION_NAMESPACE', 'MIGRATION\SAHIP\OLACAÐI\NAMESPACE\\');
+define('BACKUP', 'yedeklemeDosyalarýnýzýnBulunacaðýKonum');
 
 ```
 

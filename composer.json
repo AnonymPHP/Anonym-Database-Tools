@@ -20,7 +20,8 @@
   "require": {
     "php": ">=5.4.0",
     "symfony/finder": "2.7.*",
-    "anonym-php/anonym-database": "dev-master"
+    "anonym-php/anonym-database": "dev-master",
+    "anonym-php/anonym-filesystem":"dev-master"
   },
   "autoload": {
     "psr-4": {
