@@ -13,6 +13,10 @@
     use Anonym\Components\Database\Mode\Insert;
     use Symfony\Component\Finder\SplFileInfo;
 
+    /**
+     * Class Load
+     * @package Anonym\Database\Tools\Backup
+     */
     class Load extends BuildManager implements LoadInterface
     {
 
