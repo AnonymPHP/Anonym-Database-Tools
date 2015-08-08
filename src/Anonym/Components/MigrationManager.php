@@ -12,6 +12,10 @@
     use Exception;
     use Symfony\Component\Finder\Finder;
 
+    /**
+     * Class MigrationManager
+     * @package Anonym\Components\Tools
+     */
     class MigrationManager
     {
         /**
