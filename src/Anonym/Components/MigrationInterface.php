@@ -12,7 +12,18 @@
      */
     interface MigrationInterface
     {
+
+        /**
+         * Eklenecek verileri bu fonksiyon içinde ayalarýz
+         *
+         * @return mixed
+         */
         public function up();
 
+        /**
+         * Silinecek verileri bu fonksiyon içinde ayarlarýz
+         *
+         * @return mixed
+         */
         public function down();
     }
