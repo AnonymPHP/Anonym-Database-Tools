@@ -8,6 +8,10 @@
 
     use Exception;
 
+    /**
+     * Class Schema
+     * @package Anonym\Components\Tools
+     */
     class Schema
     {
 
