@@ -12,6 +12,12 @@ namespace Anonym\Components\Tools;
  */
 class Table implements TableInterface
 {
+
+    /**
+     * Eşleştirilecek yapıları tutar
+     *
+     * @var array
+     */
     private $patterns = [
         'create' => 'CREATE TABLE IF NOT EXISTS `%s`(',
         'auto_increment' => '`%s` INT(%d) UNSIGNED AUTO_INCREMENT PRIMARY KEY,',
@@ -32,6 +38,12 @@ class Table implements TableInterface
         'patterns' => [],
         'values' => []
     ];
+
+    /**
+     * Karekter setini tutar
+     *
+     * @var string
+     */
     private $charset = 'utf8';
 
     /**

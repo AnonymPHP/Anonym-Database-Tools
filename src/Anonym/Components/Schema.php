@@ -16,22 +16,28 @@ class Schema
 {
 
     /**
+     * Bağlantı sağlayıcısını tutar
+     *
      * @var \PDO|\mysqli|null
      */
-    private $connection;
+    private static $connection;
 
     /**
+     * Tablo yöneticisini tutar
+     *
      * @var Table
      */
     private $table;
 
+
     /**
-     * @param null $connection
+     * Sınıfı başlatır
+     *
      */
-    public function __construct($connection = null)
+    public function __construct()
     {
         $this->table = new Table();
-        $this->connection = $connection;
+
     }
 
     /**
@@ -51,7 +57,7 @@ class Schema
 
         if ($response instanceof TableInterface) {
             $string = $response->fetch();
-            return $this->connection->query($string);
+            return static::getConnection()->query($string);
 
         } else {
             throw new Exception('%s %s den dönen veri bir TableInterface değil', __CLASS__, __FUNCTION__);
@@ -70,5 +76,43 @@ class Schema
         return $this->connection->query($query);
 
     }
+
+    /**
+     * @return Table
+     */
+    public function getTable()
+    {
+        return $this->table;
+    }
+
+    /**
+     * @param Table $table
+     * @return Schema
+     */
+    public function setTable($table)
+    {
+        $this->table = $table;
+        return $this;
+    }
+
+    /**
+     * Bağlantı verisini döndürür
+     *
+     * @return \mysqli|null|\PDO
+     */
+    public static function getConnection()
+    {
+        return self::$connection;
+    }
+
+    /**
+     * @param \mysqli|null|\PDO $connection
+     */
+    public static function setConnection($connection)
+    {
+        self::$connection = $connection;
+    }
+
+
 
 }

@@ -32,7 +32,7 @@ class MigrationManager
      */
     public function createName($name = '')
     {
-        return DATABASE . 'Migrations/' . $name . '.php';
+        return MIGRATION  . $name . '.php';
     }
 
     /**
@@ -42,7 +42,7 @@ class MigrationManager
     public function __construct()
     {
         $this->base = new Base();
-        Singleton::make('Anonym\Components\Tools\MigrationDatabase\Tools\Migration\Schema', [$this->base->getConnection()]);
+        Schema::setConnection($this->base->getConnection());
     }
 
     /**
@@ -57,7 +57,7 @@ class MigrationManager
             $return = [$this->execute($name)];
         } else {
 
-            $list = Finder::create()->files()->name('*.php')->in(DATABASE . 'Migrations/');
+            $list = Finder::create()->files()->name('*.php')->in(MIGRATION);
 
             foreach ($list as $l) {
                 $return[] = $this->execute(first(explode('.', $l->getFilename())));
@@ -68,6 +68,8 @@ class MigrationManager
     }
 
     /**
+     * İşlemi gerçekleştirir
+     *
      * @param string $name
      * @throws Exception
      * @return bool
@@ -75,7 +77,7 @@ class MigrationManager
     public function execute($name = '')
     {
 
-        $migration = "Application\Database\Migrations\\$name";
+        $migration = MIGRATION_NAMESPACE.$name;
         $migration = new $migration;
 
         $return = [
