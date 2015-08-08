@@ -1,6 +1,6 @@
 <?php
 /**
- *  Bu Sýnýf AnonymFramework'de Veritabaný' ný yedeklemede kullanýlýr.
+ *  Bu SÄ±nÄ±f AnonymFramework'de VeritabanÄ±' nÄ± yedeklemede kullanÄ±lÄ±r.
  *
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
  * @see http://gemframework.com
