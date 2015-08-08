@@ -2,24 +2,24 @@ Anonym-Database-Tools
 ======================
 
 
-Burada Migration ve backup araçlarını bulacaksınız, bu araçlar normal kullanım için değil, konsol uygulamaları ile kullanılmak
-için tasarlanmıştır.
+Burada Migration ve backup araÃ§larÄ±nÄ± bulacaksÄ±nÄ±z, bu araÃ§lar normal kullanÄ±m iÃ§in deÄŸil, konsol uygulamalarÄ± ile kullanÄ±lmak
+iÃ§in tasarlanmÄ±ÅŸtÄ±r.
 
-Kullanım için
+KullanÄ±m iÃ§in
 
 ```php
 
-define('MIGRATION', 'migrationDosyalarınınbuluanacağıkonum');
-define('MIGRATION_NAMESPACE', 'MIGRATION\SAHIP\OLACAĞI\NAMESPACE\\');
-define('BACKUP', 'yedeklemeDosyalarınızınBulunacağıKonum');
+define('MIGRATION', 'migrationDosyalarÄ±nÄ±nbuluanacaÄŸÄ±konum');
+define('MIGRATION_NAMESPACE', 'MIGRATION\SAHIP\OLACAÄI\NAMESPACE\\');
+define('BACKUP', 'yedeklemeDosyalarÄ±nÄ±zÄ±nBulunacaÄŸÄ±Konum');
 
 ```
 
-// yaptıktan sonra composer.json dosyasına
+// yaptÄ±ktan sonra composer.json dosyasÄ±na
 
 ```json
 
-"MIGRATION\SAHIP\OLACAĞI\NAMESPACE\\":"migrationDosyalarınınbuluanacağıkonum";
+"MIGRATION\SAHIP\OLACAÄI\NAMESPACE\\":"migrationDosyalarÄ±nÄ±nbuluanacaÄŸÄ±konum";
 
 ```
 

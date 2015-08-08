@@ -12,7 +12,7 @@
     use Symfony\Component\Finder\Finder;
     use Anonym\Components\Database\Mode\Insert;
     use Symfony\Component\Finder\SplFileInfo;
-
+    use Anonym\Database\Tools\LoadInterface;
     /**
      * Class Load
      * @package Anonym\Database\Tools\Backup

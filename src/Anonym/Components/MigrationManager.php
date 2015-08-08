@@ -47,10 +47,10 @@ class MigrationManager
 
     /**
      * Migration sınıfını yürütür
-     * @param null $name
+     * @param string $name
      * @return array
      */
-    public function run($name = null)
+    public function run($name = '')
     {
 
         if (null !== $name) {
