@@ -1,11 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: va
- * Date: 08.08.2015
- * Time: 15:55
- */
 
+/**
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @copyright AnonymMedya, 2015
+ */
 namespace Anonym\Database\Tools\Backup;
 
 /**

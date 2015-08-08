@@ -113,6 +113,4 @@ class Schema
         self::$connection = $connection;
     }
 
-
-
 }
