@@ -1,7 +1,9 @@
 <?php
 /**
+ *  Bu Sýnýf AnonymFramework'de Veritabaný' ný yedeklemede kullanýlýr.
+ *
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
- * @copyright AnonymMedya, 2015
+ * @see http://gemframework.com
  */
 
 namespace Anonym\Components\Tools;

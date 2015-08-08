@@ -1,9 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: va
- * Date: 08.08.2015
- * Time: 15:52
+ *  Bu Sýnýf AnonymFramework'de Veritabaný' ný yedeklemede kullanýlýr.
+ *
+ * @author vahitserifsaglam <vahit.serif119@gmail.com>
+ * @see http://gemframework.com
  */
 
 namespace Anonym\Database\Tools;

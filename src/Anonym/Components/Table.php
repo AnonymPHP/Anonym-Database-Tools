@@ -1,7 +1,9 @@
 <?php
 /**
+ *  Bu Sınıf AnonymFramework'de Veritabanı' nı yedeklemede kullanılır.
+ *
  * @author vahitserifsaglam <vahit.serif119@gmail.com>
- * @copyright AnonymMedya, 2015
+ * @see http://gemframework.com
  */
 
 namespace Anonym\Components\Tools;
