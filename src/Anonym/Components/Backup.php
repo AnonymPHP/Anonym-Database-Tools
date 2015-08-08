@@ -8,8 +8,7 @@
 
     use Anonym\Components\Database\Base;
     use Anonym\Components\Database\Builders\BuildManager;
-    use Anonym\Filesystem;
-
+    use Anonym\Components\Filesystem\Filesystem;
     /**
      * Class Backup
      *
@@ -70,17 +69,17 @@
 
                 $content = json_encode($generateArray);
                 $fileName = sprintf('%s%s%s', $backupPath, $name, ".php");
-                $file = Filesystem::getInstance();
+                $file = (new Filesystem())->disk('local');
 
                 if (!$file->exists($backupPath)) {
-                    $file->mkdir($backupPath);
+                    $file->createDir($backupPath);
                 }
 
-                $file->chmod($backupPath, 0777);
+               chmod($backupPath, 0777);
 
                 if (!$file->exists($fileName)) {
-                    $file->touch($fileName);
-                    $file->chmod($fileName, 0777);
+                    $file->create($fileName);
+                    chmod($fileName, 0777);
                     return $file->write($fileName, $content);
                 } else {
                     return false;

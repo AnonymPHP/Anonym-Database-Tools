@@ -8,7 +8,7 @@
 
     use Anonym\Components\Database\Base;
     use Anonym\Components\Database\Builders\BuildManager;
-    use Anonym\Filesystem;
+    use Anonym\Components\Filesystem\Filesystem;
     use Symfony\Component\Finder\Finder;
     use Anonym\Components\Database\Mode\Insert;
     use Symfony\Component\Finder\SplFileInfo;
@@ -74,7 +74,7 @@
 
             $file = $this->generatePath($name);
             if ($this->file->exists($file)) {
-                if ($this->file->isReadable($file)) {
+                if (is_readable($file)) {
                     $content = $this->file->read($file);
                     $content = json_decode($content, true);
                     foreach ($content as $arg) {
