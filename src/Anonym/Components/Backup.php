@@ -9,12 +9,14 @@
     use Anonym\Components\Database\Base;
     use Anonym\Components\Database\Builders\BuildManager;
     use Anonym\Components\Filesystem\Filesystem;
+    use Anonym\Database\Tools\BackupInterface;
+
     /**
      * Class Backup
      *
      * @package Anonym\Database\Tools
      */
-    class Backup extends BuildManager
+    class Backup extends BuildManager implements BackupInterface
     {
 
 

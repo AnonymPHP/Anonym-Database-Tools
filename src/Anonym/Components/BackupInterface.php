@@ -6,7 +6,7 @@
  * Time: 15:52
  */
 
-namespace Anonym\Database\Tools\Backup;
+namespace Anonym\Database\Tools;
 
 /**
  * Interface BackupInterface
