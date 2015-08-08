@@ -36,7 +36,7 @@
         public function __construct(Base $base = null)
         {
             parent::__construct($base);
-            $this->file = Filesystem::getInstance();
+            $this->file = (new Filesystem())->disk('local');
             $this->base = $base;
         }
 
