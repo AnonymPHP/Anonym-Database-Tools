@@ -6,7 +6,10 @@
 
     namespace Anonym\Components\Tools;
 
-
+    /**
+     * Class Table
+     * @package Anonym\Components\Tools
+     */
     class Table implements TableInterface
     {
         private $patterns = [
