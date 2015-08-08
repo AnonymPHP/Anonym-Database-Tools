@@ -47,14 +47,14 @@ class MigrationManager
 
     /**
      * Migration sınıfını yürütür
-     * @param string $name
+     * @param string $fileName
      * @return array
      */
-    public function run($name = '')
+    public function run($fileName)
     {
 
-        if ('' !== $name) {
-            $return = [$this->execute($name)];
+        if ('' !== $fileName) {
+            $return = [$this->execute($fileName)];
         } else {
 
             $list = Finder::create()->files()->name('*.php')->in(MIGRATION);
