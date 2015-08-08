@@ -53,7 +53,7 @@ class MigrationManager
     public function run($name = '')
     {
 
-        if (null !== $name) {
+        if ('' !== $name) {
             $return = [$this->execute($name)];
         } else {
 
