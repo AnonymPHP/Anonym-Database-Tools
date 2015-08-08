@@ -28,9 +28,11 @@
         }
 
         /**
-         * @param string $tables
-         * @param string $name
-         * @param string $src
+         * Verileri yedekler
+         *
+         * @param string $tables Tablo adları
+         * @param string $name yedeklenirken kullanılacak isim
+         * @param string $src yedeklerin olduğu klasör
          * @return bool
          */
         public function backup($tables = '*', $name = '', $src = BACKUP)
@@ -65,17 +67,16 @@
             }
 
             if (count($generateArray)) {
-                $backupPath = BACKUP;
 
                 $content = json_encode($generateArray);
-                $fileName = sprintf('%s%s%s', $backupPath, $name, ".php");
+                $fileName = sprintf('%s%s%s', $src, $name, ".php");
                 $file = (new Filesystem())->disk('local');
 
-                if (!$file->exists($backupPath)) {
-                    $file->createDir($backupPath);
+                if (!$file->exists($src)) {
+                    $file->createDir($src);
                 }
 
-               chmod($backupPath, 0777);
+               chmod($src, 0777);
 
                 if (!$file->exists($fileName)) {
                     $file->create($fileName);
