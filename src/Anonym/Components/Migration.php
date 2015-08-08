@@ -13,4 +13,5 @@
     abstract class Migration
     {
 
+        // do nothing
     }

@@ -6,9 +6,7 @@
 
     namespace Anonym\Components\Tools;
 
-    use Anonym\Components\Tools\MigrationDatabase\Base;
-    use Anonym\Components\Tools\MigrationHelpers\Config;
-    use Anonym\Components\Tools\MigrationPatterns\Singleton;
+    use Anonym\Components\Database\Base;
     use Exception;
     use Symfony\Component\Finder\Finder;
 
