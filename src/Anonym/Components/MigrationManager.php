@@ -40,10 +40,12 @@ class MigrationManager
     /**
      *
      * Uygulamayı alır ve toplamaya başlar
+     *
+     * @param Base $base
      */
-    public function __construct()
+    public function __construct(Base $base)
     {
-        $this->base = new Base();
+        $this->base = $base;
         Schema::setConnection($this->base->getConnection());
     }
 
@@ -55,6 +57,7 @@ class MigrationManager
     public function run($fileName)
     {
 
+        $return = [];
         if ('' !== $fileName) {
             $return = [$this->execute($fileName)];
         } else {
