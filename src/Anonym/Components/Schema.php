@@ -9,7 +9,7 @@
 namespace Anonym\Components\Tools;
 
 use Exception;
-
+use Anonym\Components\Database\Base;
 /**
  * Class Schema
  * @package Anonym\Components\Tools
@@ -36,9 +36,11 @@ class Schema
      * Sınıfı başlatır
      *
      */
-    public function __construct()
+    public function __construct(Base $base)
     {
         $this->table = new Table();
+
+        static::setConnection($base->getConnection());
 
     }
 
