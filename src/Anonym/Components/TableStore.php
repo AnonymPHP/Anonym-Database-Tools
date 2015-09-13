@@ -32,4 +32,42 @@ class TableStore
     private $values;
 
 
+
+
+    /**
+     * @return array
+     */
+    public function getPatterns()
+    {
+        return $this->patterns;
+    }
+
+    /**
+     * @param array $patterns
+     * @return TableStore
+     */
+    public function setPatterns($patterns)
+    {
+        $this->patterns = $patterns;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getValues()
+    {
+        return $this->values;
+    }
+
+    /**
+     * @param array $values
+     * @return TableStore
+     */
+    public function setValues($values)
+    {
+        $this->values = $values;
+        return $this;
+    }
+
 }
