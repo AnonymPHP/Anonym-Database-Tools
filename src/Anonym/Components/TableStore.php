@@ -10,7 +10,10 @@
 
 namespace Anonym\Database\Tools\Backup;
 
-
+/**
+ * Class TableStore
+ * @package Anonym\Database\Tools\Backup
+ */
 class TableStore
 {
 
