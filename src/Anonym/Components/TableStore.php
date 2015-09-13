@@ -31,7 +31,12 @@ class TableStore
      */
     private $values;
 
-
+    /**
+     * create a new instance and register patterns
+     *
+     * @param string $pattern
+     * @param array $values
+     */
     public function __construct($pattern = '',array $values = []){
         $this->pattern = $pattern;
         $this->values = $values;
