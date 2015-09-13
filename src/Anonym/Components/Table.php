@@ -23,7 +23,7 @@ class Table implements TableInterface
     private $patterns = [
         'create' => 'CREATE TABLE IF NOT EXISTS `%s`(',
         'auto_increment' => '`%s` INT(%d) UNSIGNED AUTO_INCREMENT PRIMARY KEY,',
-        'int' => '`%s` INT(%d) %s,',
+        'int' => '`%s` INT(%d) %s NULL %s,',
         'varchar' => '`%s` VARCHAR(%d) CHARACTER SET %s %s,',
         'timestamp' => '`%s` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,',
         'date' => '`%s` DATE %s,',

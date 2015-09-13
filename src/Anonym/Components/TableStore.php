@@ -42,6 +42,14 @@ class TableStore
         $this->values = $values;
     }
 
+
+    public function __toString()
+    {
+        $content = call_user_func_array($this->getPattern(), $this->getValues());
+        return $content;
+
+    }
+
     /**
      * @return array
      */
