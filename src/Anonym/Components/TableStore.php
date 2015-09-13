@@ -22,7 +22,7 @@ class TableStore
      *
      * @var array
      */
-    private $patterns;
+    private $pattern;
 
     /**
      * an array for pattern values
@@ -32,24 +32,8 @@ class TableStore
     private $values;
 
 
+    public function __construct($pattern = '',array $values = []){
 
-
-    /**
-     * @return array
-     */
-    public function getPatterns()
-    {
-        return $this->patterns;
-    }
-
-    /**
-     * @param array $patterns
-     * @return TableStore
-     */
-    public function setPatterns($patterns)
-    {
-        $this->patterns = $patterns;
-        return $this;
     }
 
     /**
