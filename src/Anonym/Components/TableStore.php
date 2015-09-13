@@ -33,8 +33,28 @@ class TableStore
 
 
     public function __construct($pattern = '',array $values = []){
-
+        $this->pattern = $pattern;
+        $this->values = $values;
     }
+
+    /**
+     * @return array
+     */
+    public function getPattern()
+    {
+        return $this->pattern;
+    }
+
+    /**
+     * @param array $pattern
+     * @return TableStore
+     */
+    public function setPattern($pattern)
+    {
+        $this->pattern = $pattern;
+        return $this;
+    }
+
 
     /**
      * @return array
