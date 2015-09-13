@@ -177,7 +177,7 @@ class Table implements TableInterface
     public function primary($id = 'id')
     {
         $uniqid = $this->uniqid();
-        $this->selected['patterns'][] = 'auto_increment';
+        $this->selected['patterns'][$uniqid] = 'auto_increment';
         $this->selected['values']['auto_increment'][$uniqid] = [$id];
         return $this;
     }
