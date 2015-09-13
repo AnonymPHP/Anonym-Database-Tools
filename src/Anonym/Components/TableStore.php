@@ -43,6 +43,11 @@ class TableStore
     }
 
 
+    /**
+     * create content string
+     *
+     * @return mixed
+     */
     public function __toString()
     {
         $content = call_user_func_array($this->getPattern(), $this->getValues());
