@@ -174,11 +174,11 @@ class Table implements TableInterface
      * @param string $id
      * @return $this
      */
-    public function primary($id = 'id')
+    public function primary($id = 'id', $limit = 255)
     {
         $uniqid = $this->uniqid();
         $this->selected['patterns'][$uniqid] = 'auto_increment';
-        $this->selected['values']['auto_increment'][$uniqid] = [$id];
+        $this->selected['values']['auto_increment'][$uniqid] = [$id, $limit];
         return $this;
     }
 
