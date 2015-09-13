@@ -65,11 +65,20 @@ class Table implements TableInterface
      */
     public function create($tableName = '')
     {
+
         $this->selected['patterns'][] = 'create';
         $this->selected['values']['create'] = [$tableName];
         return $this;
     }
 
+
+    /**
+     * @return string
+     */
+    private function uniqid()
+    {
+        return uniqid(rand(1,100));
+    }
     /**
      * timestamp değeri ekler
      * @param string $tableName
@@ -77,8 +86,10 @@ class Table implements TableInterface
      */
     public function timestamp($tableName = '')
     {
-        $this->selected['patterns'][] = 'timestamp';
-        $this->selected['values']['timestamp'] = [$tableName, $this->null];
+        $uniqid = $this->uniqid();
+
+        $this->selected['patterns'][$uniqid] = 'timestamp';
+        $this->selected['values']['timestamp'][$uniqid] = [$tableName, $this->null];
         return $this;
     }
 
@@ -89,8 +100,10 @@ class Table implements TableInterface
      */
     public function date($tableName = '')
     {
-        $this->selected['patterns'][] = 'date';
-        $this->selected['values']['date'] = [$tableName, $this->null];
+        $uniqid = $this->uniqid();
+
+        $this->selected['patterns'][$uniqid] = 'date';
+        $this->selected['values']['date'][$uniqid] = [$tableName, $this->null];
         return $this;
     }
 
@@ -111,7 +124,8 @@ class Table implements TableInterface
      */
     public function time($tableName = '')
     {
-        $this->selected['patterns'][] = 'time';
+        $uniqid = $this->uniqid();
+        $this->selected['patterns'][$uniqid] = 'time';
         $this->selected['values']['time'] = [$tableName, $this->null];
         return $this;
     }
@@ -123,8 +137,9 @@ class Table implements TableInterface
      */
     public function datetime($tableName = '')
     {
-        $this->selected['patterns'][] = 'datetime';
-        $this->selected['values']['datetime'] = [$tableName, $this->null];
+        $uniqid= $this->uniqid();
+        $this->selected['patterns'][$uniqid] = 'datetime';
+        $this->selected['values']['datetime'][$uniqid] = [$tableName, $this->null];
         return $this;
     }
 
@@ -136,8 +151,9 @@ class Table implements TableInterface
      */
     public function text($tableName = '')
     {
-        $this->selected['patterns'][] = 'text';
-        $this->selected['values']['text'] = [$tableName, $this->charset, $this->null];
+        $uniqid = $this->uniqid();
+        $this->selected['patterns'][$uniqid] = 'text';
+        $this->selected['values']['text'][$uniqid] = [$tableName, $this->charset, $this->null];
         return $this;
     }
 
@@ -172,7 +188,8 @@ class Table implements TableInterface
 
     public function int($table = '', $limit = 255)
     {
-        $this->selected['patterns'][] = 'int';
+        $uniqid = $this->uniqid();
+        $this->selected['patterns'][$uniqid] = 'int';
         $this->selected['values']['int'] = [$table, $limit, $this->null];
         return $this;
     }
@@ -185,8 +202,10 @@ class Table implements TableInterface
      */
     public function varchar($table = '', $limit = 255)
     {
-        $this->selected['patterns'][] = 'varchar';
-        $this->selected['values']['varchar'] = [$table, $limit, $this->charset, $this->null];
+        $uniqid = $this->uniqid();
+
+        $this->selected['patterns'][$uniqid] = 'varchar';
+        $this->selected['values']['varchar'][$uniqid] = [$table, $limit, $this->charset, $this->null];
         return $this;
     }
 
