@@ -128,7 +128,7 @@ class Table implements TableInterface
     {
         $uniqid = $this->uniqid();
         $this->selected['patterns'][$uniqid] = 'time';
-        $this->selected['values']['time'] = [$tableName, $this->null];
+        $this->selected['values']['time'][$uniqid] = [$tableName, $this->null];
         return $this;
     }
 
@@ -176,8 +176,9 @@ class Table implements TableInterface
      */
     public function primary($id = 'id')
     {
+        $uniqid = $this->uniqid();
         $this->selected['patterns'][] = 'auto_increment';
-        $this->selected['values']['auto_increment'] = [$id];
+        $this->selected['values']['auto_increment'][$uniqid] = [$id];
         return $this;
     }
 
