@@ -23,7 +23,7 @@ class Table implements TableInterface
     private $patterns = [
         'create' => 'CREATE TABLE IF NOT EXISTS `%s`(',
         'auto_increment' => '`%s` INT(%d) UNSIGNED AUTO_INCREMENT PRIMARY KEY,',
-        'int' => '`%s` INT(%d) %s NULL %s,',
+        'int' => '`%s` INT(%d) %s NULL,',
         'varchar' => '`%s` VARCHAR(%d) CHARACTER SET %s %s,',
         'timestamp' => '`%s` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,',
         'date' => '`%s` DATE %s,',
@@ -41,6 +41,10 @@ class Table implements TableInterface
         'values' => []
     ];
 
+    /**
+     * @var string
+     */
+    private $create;
     /**
      * Karekter setini tutar
      *
@@ -65,9 +69,7 @@ class Table implements TableInterface
      */
     public function create($tableName = '')
     {
-
-        $this->selected['patterns'][] = 'create';
-        $this->selected['values']['create'] = [$tableName];
+        $this->create = $tableName;
         return $this;
     }
 
@@ -190,7 +192,7 @@ class Table implements TableInterface
     {
         $uniqid = $this->uniqid();
         $this->selected['patterns'][$uniqid] = 'int';
-        $this->selected['values']['int'] = [$table, $limit, $this->null];
+        $this->selected['values']['int'][$uniqid] = [$table, $limit, $this->null];
         return $this;
     }
 
@@ -226,17 +228,19 @@ class Table implements TableInterface
      */
     public function fetch()
     {
-        $string = '';
+        $string = isset($this->create) ? sprintf($this->patterns['create'], $this->create): '';
         $selected = $this->selected;
         $patterns = $this->patterns;
-        foreach ($selected['patterns'] as $select) {
-            if (isset($patterns[$select])) {
-                $pattern = [$patterns[$select]];
-                $values = $selected['values'][$select];
-                $vals = array_merge($pattern, $values);
-                $string .= call_user_func_array('sprintf', $vals);
 
-            }
+        foreach($selected['patterns'] as $uniqid => $type){
+
+            $pattern = $this->patterns[$type];
+            $selectedType = $selected['values'][$type];
+            $selectedData = $selectedType[$uniqid];
+
+            $selectedDataWithPattern = array_merge((array)$pattern, $selectedData);
+            $string .= call_user_func_array('sprintf', $selectedDataWithPattern);
+
         }
 
         $string = rtrim($string, ',');
