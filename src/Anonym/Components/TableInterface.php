@@ -77,4 +77,13 @@ interface  TableInterface
      * @return Chield
      */
     public function year($name);
+
+    /**
+     * add a new auto_increment column to mysql
+     *
+     * @param string $name
+     * @param int $limit
+     * @return mixed
+     */
+    public function primary($name, $limit = 255);
 }
