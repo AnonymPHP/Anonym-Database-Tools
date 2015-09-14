@@ -109,4 +109,95 @@ class Chield implements TableInterface
     public function __call($name, $method){
         return call_user_func_array([$this->app, $name], $method);
     }
+
+    /**
+     * add a text string to value
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function text($name)
+    {
+         return $this->app->text($name);
+    }
+
+    /**
+     * add a new varchar command
+     *
+     * @param string $name
+     * @param int $limit
+     * @return Chield
+     */
+    public function varchar($name, $limit = 255)
+    {
+        // TODO: Implement varchar() method.
+    }
+
+    /**
+     * add a new date command
+     *
+     * @param  string $name
+     * @return Chield
+     */
+    public function date($name)
+    {
+        // TODO: Implement date() method.
+    }
+
+    /**
+     * add a new integer command
+     *
+     * @param string $name
+     * @param int $limit
+     * @return Chield
+     */
+    public function int($name, $limit = 255)
+    {
+        // TODO: Implement int() method.
+    }
+
+    /**
+     * add a new time string
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function time($name)
+    {
+        // TODO: Implement time() method.
+    }
+
+    /**
+     * add a new timestamp column to mysql
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function timestamp($name)
+    {
+        // TODO: Implement timestamp() method.
+    }
+
+    /**
+     * add a new year year column to mysql
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function year($name)
+    {
+        // TODO: Implement year() method.
+    }
+
+    /**
+     * add a new auto_increment column to mysql
+     *
+     * @param string $name
+     * @param int $limit
+     * @return mixed
+     */
+    public function primary($name, $limit = 255)
+    {
+        // TODO: Implement primary() method.
+    }
 }
