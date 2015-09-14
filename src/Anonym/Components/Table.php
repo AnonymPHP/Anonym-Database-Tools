@@ -76,6 +76,7 @@ class Table
     public function date($name){
         return $this->addCommand('date', $this->madeArray($name));
     }
+
     /**
      * get all args
      *
