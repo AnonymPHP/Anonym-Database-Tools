@@ -52,24 +52,31 @@ class Table
      */
     public function text($name)
     {
-        return Blueprint::command($name,
-            new Chield($this, $this->patterns['text'], [$name]));
+        $this->addCommand('varchar', $this->madeArray($name));
     }
 
     public function varchar($name, $limit = 255){
-        return $this->addCommand($name, 'varchar', [])
+        return $this->addCommand($name, 'varchar', $this->madeArray($name, $limit));
+    }
+
+    /**
+     * get all args
+     *
+     * @return array
+     */
+    private function madeArray($param1, $param2){
+        return func_get_args();
     }
 
     /**
      * build blueprint command
      *
-     * @param string $name
      * @param string $type
      * @param array $variables
      * @return Chield
      */
-    private function addCommand($name, $type, $variables){
-        return Blueprint::command($name, new Chield($this, $this->patterns[$type], $variables) );
+    private function addCommand($type, $variables){
+        return Blueprint::command(new Chield($this, $this->patterns[$type], $variables) );
     }
 
     /*
