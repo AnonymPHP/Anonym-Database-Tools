@@ -10,11 +10,14 @@
 
 namespace Anonym\Database\Tools\Backup;
 
-
-abstract class Seeder
+/**
+ * Class Seeder
+ * @package Anonym\Database\Tools\Backup
+ */
+class Seeder
 {
 
-    abstract public function run();
+
 
 
 }
