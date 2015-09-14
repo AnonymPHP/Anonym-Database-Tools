@@ -52,20 +52,32 @@ class Table
      */
     public function text($name)
     {
-        $this->addCommand('varchar', $this->madeArray($name));
-    }
-
-    public function varchar($name, $limit = 255){
-        return $this->addCommand($name, 'varchar', $this->madeArray($name, $limit));
+        return $this->addCommand('varchar', $this->madeArray($name));
     }
 
     /**
+     * add a new varchar command
+     *
+     * @param string $name
+     * @param int $limit
+     * @return Chield
+     */
+    public function varchar($name, $limit = 255){
+        return $this->addCommand('varchar', $this->madeArray($name, $limit));
+    }
+
+
+    public function date($name){
+        return $this->addCommand('date', $this->madeArray($name));
+    }
+    /**
      * get all args
      *
+     * @param mixed $param
      * @return array
      */
-    private function madeArray(){
-        return func_get_args();
+    private function madeArray($param){
+        return func_num_args() === 1 ? [$param] : func_get_args();
     }
 
     /**
