@@ -16,7 +16,7 @@ use Anonym\Components\Console\Command;
  * Class Seeder
  * @package Anonym\Database\Tools\Backup
  */
-class Seeder
+class Seeder implements SeedInterface
 {
 
     /**
@@ -36,6 +36,28 @@ class Seeder
     public function __construct(Container $container = null)
     {
         $this->setContainer($container);
+    }
+
+
+    /**
+     * run the seed class
+     *
+     * @return mixed
+     */
+    public function run(){
+
+    }
+
+    /**
+     * call the seed
+     *
+     * @param string $class
+     * @return mixed
+     */
+    public function call($class){
+        $abstarct = "App\\Database\\Seeds\\$class";
+
+        return $this->resolve($abstarct)->run();
     }
 
     /**
