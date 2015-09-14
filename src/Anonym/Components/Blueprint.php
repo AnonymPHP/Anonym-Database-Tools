@@ -17,4 +17,38 @@ namespace Anonym\Database\Tools\Backup;
 class Blueprint
 {
 
+    /**
+     * the list of commands
+     *
+     * @var array
+     */
+    private static $command;
+
+    /**
+     * @param $name
+     * @param $value
+     */
+    public static function command($name, $value)
+    {
+       return static::$command[$name] = $value;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getCommand()
+    {
+        return self::$command;
+    }
+
+    /**
+     * @param array $command
+     */
+    public static function setCommand($command)
+    {
+        self::$command = $command;
+    }
+
+
+
 }
