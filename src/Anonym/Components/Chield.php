@@ -65,4 +65,16 @@ class Chield
         $this->null = $null;
         return $this;
     }
+
+    /**
+     * register default variable
+     *
+     * @param mixed $defualt
+     * @return $this
+     */
+    public function defualt($defualt){
+        $this->default = $defualt;
+
+        return $this;
+    }
 }
