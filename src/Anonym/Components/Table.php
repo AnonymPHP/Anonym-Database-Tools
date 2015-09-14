@@ -147,30 +147,7 @@ class Table implements TableInterface
         return $content;
     }
 
-    /*
-    public function fetch()
-    {
-        $string = isset($this->create) ? sprintf($this->patterns['create'], $this->create): '';
-        $selected = $this->selected;
-        $patterns = $this->patterns;
 
-        foreach($selected['patterns'] as $uniqid => $type){
-
-            $pattern = $this->patterns[$type];
-            $selectedType = $selected['values'][$type];
-            $selectedData = $selectedType[$uniqid];
-
-            $selectedDataWithPattern = array_merge((array)$pattern, $selectedData);
-            $string .= call_user_func_array('sprintf', $selectedDataWithPattern);
-
-        }
-
-        $string = rtrim($string, ',');
-        $string .= sprintf($patterns['end'], $this->charset);
-
-        return $string;
-    }
-    */
     /**
      * add a new integer command
      *
