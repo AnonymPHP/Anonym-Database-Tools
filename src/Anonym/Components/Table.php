@@ -140,6 +140,8 @@ class Table implements TableInterface
             $content .= $command->rende();
         }
 
+        $content = rtrim($content, ',');
+
         $content .= sprintf($this->patterns['end'], $this->charset);
         return $content;
     }
