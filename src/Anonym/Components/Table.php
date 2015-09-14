@@ -43,7 +43,6 @@ class Table implements TableInterface
      */
     private $charset = 'utf8';
 
-
     /**
      * add a text string to value
      *
