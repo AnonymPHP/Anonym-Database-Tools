@@ -83,7 +83,15 @@ interface  TableInterface
      *
      * @param string $name
      * @param int $limit
-     * @return mixed
+     * @return Chield
      */
     public function primary($name, $limit = 255);
+
+    /**
+     * add a new time stamp with CURRENT_TIMESTAMP
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function current($name);
 }
