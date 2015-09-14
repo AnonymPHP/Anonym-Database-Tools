@@ -34,6 +34,12 @@ class Seeder
         $this->setContainer($container);
     }
 
+    /**
+     * Resolve an instance of the given seeder class.
+     *
+     * @param  string  $class
+     * @return Seeder
+     */
     public function resolve($abstact)
     {
         if (isset($this->container)) {
@@ -45,6 +51,8 @@ class Seeder
         if (isset($this->command)) {
             $instance->setCommand($this->command);
         }
+
+        return $instance;
     }
 
     /**
