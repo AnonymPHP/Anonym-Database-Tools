@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Database\Tools\Backup;
+namespace Anonym\Database\Tools;
 
 use Illuminate\Container\Container;
 use Anonym\Components\Console\Command;
