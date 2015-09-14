@@ -67,6 +67,12 @@ class Table
     }
 
 
+    /**
+     * add a new date command
+     *
+     * @param  string $name
+     * @return Chield
+     */
     public function date($name){
         return $this->addCommand('date', $this->madeArray($name));
     }
