@@ -31,7 +31,7 @@ class Table implements TableInterface
         'year' => '`%s` YEAR,',
         'time' => '`%s` TIME,',
         'datetime' => '`%s` DATETIME,',
-        'text' => '`%s` TEXT CHARACTER SET %s,',
+        'text' => '`%s` TEXT,',
         'end' => ') DEFAULT CHARSET=%s;',
         'drop' => 'DROP TABLE `%s`;'
     ];
@@ -43,6 +43,24 @@ class Table implements TableInterface
      */
     private $charset = 'utf8';
 
+    /**
+     * the name of table gonna create
+     *
+     * @var string
+     */
+    private $table;
+
+
+    /**
+     * register the table name
+     *
+     * @param string $name
+     * @return $this
+     */
+    public function create($name){
+        $this->table = $name;
+        return $this;
+    }
     /**
      * add a text string to value
      *
