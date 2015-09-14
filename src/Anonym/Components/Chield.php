@@ -10,7 +10,10 @@
 
 namespace Anonym\Components\Tools;
 
-
+/**
+ * Class Chield
+ * @package Anonym\Components\Tools
+ */
 class Chield implements TableInterface
 {
 
