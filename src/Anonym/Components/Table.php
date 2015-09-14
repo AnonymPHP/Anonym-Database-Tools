@@ -44,10 +44,32 @@ class Table
     private $charset = 'utf8';
 
 
+    /**
+     * add a text string to value
+     *
+     * @param string $name
+     * @return Chield
+     */
     public function text($name)
     {
         return Blueprint::command($name,
             new Chield($this, $this->patterns['text'], [$name]));
+    }
+
+    public function varchar($name, $limit = 255){
+        return $this->addCommand($name, 'varchar', [])
+    }
+
+    /**
+     * build blueprint command
+     *
+     * @param string $name
+     * @param string $type
+     * @param array $variables
+     * @return Chield
+     */
+    private function addCommand($name, $type, $variables){
+        return Blueprint::command($name, new Chield($this, $this->patterns[$type], $variables) );
     }
 
     /*

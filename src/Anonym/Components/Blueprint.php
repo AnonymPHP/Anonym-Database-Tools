@@ -25,13 +25,12 @@ class Blueprint
     private static $command;
 
     /**
-     * @param mixed $name
      * @param mixed $value
      * @return Chield
      */
-    public static function command($name, $value)
+    public static function command($value)
     {
-       return static::$command[$name] = $value;
+       return static::$command[] = $value;
     }
 
     /**
