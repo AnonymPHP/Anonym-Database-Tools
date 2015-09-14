@@ -27,6 +27,7 @@ class Table implements TableInterface
         'int' => '`%s` INT(%d)',
         'varchar' => '`%s` VARCHAR(%d)',
         'timestamp' => '`%s` TIMESTAMP',
+        'current' => '`%s` TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
         'date' => '`%s` DATE',
         'year' => '`%s` YEAR',
         'time' => '`%s` TIME',
