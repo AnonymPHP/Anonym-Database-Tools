@@ -10,7 +10,10 @@
 
 namespace Anonym\Database\Tools\Backup;
 
-
+/**
+ * Class Blueprint
+ * @package Anonym\Database\Tools\Backup
+ */
 class Blueprint
 {
 
