@@ -23,15 +23,15 @@ class Table implements TableInterface
      */
     private $patterns = [
         'create' => 'CREATE TABLE IF NOT EXISTS `%s`(',
-        'auto_increment' => '`%s` INT(%d) UNSIGNED AUTO_INCREMENT PRIMARY KEY,',
-        'int' => '`%s` INT(%d),',
-        'varchar' => '`%s` VARCHAR(%d) CHARACTER SET %s ,',
+        'auto_increment' => '`%s` INT(%d) UNSIGNED AUTO_INCREMENT PRIMARY KEY',
+        'int' => '`%s` INT(%d)',
+        'varchar' => '`%s` VARCHAR(%d)',
         'timestamp' => '`%s` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,',
-        'date' => '`%s` DATE,',
-        'year' => '`%s` YEAR,',
-        'time' => '`%s` TIME,',
-        'datetime' => '`%s` DATETIME,',
-        'text' => '`%s` TEXT,',
+        'date' => '`%s` DATE',
+        'year' => '`%s` YEAR',
+        'time' => '`%s` TIME',
+        'datetime' => '`%s` DATETIME',
+        'text' => '`%s` TEXT',
         'end' => ') DEFAULT CHARSET=%s;',
         'drop' => 'DROP TABLE `%s`;'
     ];
