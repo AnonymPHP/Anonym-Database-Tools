@@ -115,6 +115,11 @@ class Table implements TableInterface
         return Blueprint::command(new Chield($this, $this->patterns[$type], $variables) );
     }
 
+    /**
+     * create sql string
+     *
+     * @return string
+     */
     public function fetch(){
 
         $content = '';
