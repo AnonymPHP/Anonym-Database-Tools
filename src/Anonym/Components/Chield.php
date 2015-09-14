@@ -186,7 +186,7 @@ class Chield implements TableInterface
      */
     public function year($name)
     {
-        // TODO: Implement year() method.
+        return $this->app->year($name);
     }
 
     /**
