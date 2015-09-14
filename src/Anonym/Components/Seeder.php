@@ -11,7 +11,7 @@
 namespace Anonym\Database\Tools\Backup;
 
 use Illuminate\Container\Container;
-
+use Anonym\Components\Console\Command;
 /**
  * Class Seeder
  * @package Anonym\Database\Tools\Backup
@@ -24,6 +24,10 @@ class Seeder
      */
     protected $container;
 
+    /**
+     * @var Command
+     */
+    protected $command;
     /**
      * create a new instance
      *
