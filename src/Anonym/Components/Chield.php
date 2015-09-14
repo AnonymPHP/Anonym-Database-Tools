@@ -14,4 +14,55 @@ namespace Anonym\Database\Tools\Backup;
 class Chield
 {
 
+    /**
+     * the pattern of command
+     *
+     * @var string
+     */
+    private $pattern;
+
+    /**
+     * determine if it is null
+     *
+     * @var bool
+     */
+    private $null = false;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    private $default;
+
+
+    /**
+     * the datas of pattern
+     *
+     * @var array
+     */
+    private $values;
+
+    /**
+     * @param string $pattern
+     * @param array $values
+     */
+    public function __construct($pattern, array $values = [])
+    {
+        $this->pattern = $pattern;
+        $this->values = $values;
+    }
+
+
+    /**
+     * register null variable
+     *
+     * @param bool|true $null
+     * @return $this
+     */
+    public function null($null = true)
+    {
+        $this->null = $null;
+        return $this;
+    }
 }
