@@ -205,4 +205,15 @@ class Chield implements TableInterface
     {
         return $this->app->primary($name, $limit);
     }
+
+    /**
+     * add a new time stamp with CURRENT_TIMESTAMP
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function current($name)
+    {
+        return $this->app->current($name);
+    }
 }
