@@ -149,6 +149,15 @@ class Table implements TableInterface
 
 
     /**
+     * drop a table
+     *
+     * @param string $name
+     * @return string
+     */
+    public function drop($name){
+        return sprintf($this->patterns['drop'], $name);
+    }
+    /**
      * add a new integer command
      *
      * @param string $name
