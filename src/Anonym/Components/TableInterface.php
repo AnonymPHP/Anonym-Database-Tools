@@ -71,7 +71,7 @@ interface  TableInterface
     public function timestamp($name);
 
     /**
-     * add a new year timestamp column to mysql
+     * add a new year year column to mysql
      *
      * @param string $name
      * @return Chield
