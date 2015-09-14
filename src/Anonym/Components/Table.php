@@ -44,9 +44,11 @@ class Table
     private $charset = 'utf8';
 
 
-
-    public function text($name){
-        return Blueprint::command($name, new Chield($this->patterns['text'], [$name]));
+    public function text($name)
+    {
+        return Blueprint::command($this,
+            $name, new Chield($this->patterns['text'], [$name]
+            ));
     }
 
     /*
