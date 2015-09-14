@@ -130,7 +130,7 @@ class Chield implements TableInterface
      */
     public function varchar($name, $limit = 255)
     {
-        // TODO: Implement varchar() method.
+        return $this->app->varchar($name, $limit);
     }
 
     /**
@@ -141,7 +141,7 @@ class Chield implements TableInterface
      */
     public function date($name)
     {
-        // TODO: Implement date() method.
+        return $this->app->date($name);
     }
 
     /**
@@ -153,7 +153,7 @@ class Chield implements TableInterface
      */
     public function int($name, $limit = 255)
     {
-        // TODO: Implement int() method.
+        return $this->app->int($name, $limit);
     }
 
     /**
@@ -164,7 +164,7 @@ class Chield implements TableInterface
      */
     public function time($name)
     {
-        // TODO: Implement time() method.
+        return $this->app->time($name);
     }
 
     /**
