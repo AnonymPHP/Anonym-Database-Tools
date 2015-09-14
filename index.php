@@ -4,9 +4,8 @@ include "vendor/autoload.php";
 
 $table = new \Anonym\Components\Tools\Table();
 
-$response = $table->varchar('aa')
-    ->int('bb')
-    ->null('NOT NULL');
+$response = $table->text('aa');
+
 
 
 var_dump($response);
