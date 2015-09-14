@@ -198,6 +198,6 @@ class Chield implements TableInterface
      */
     public function primary($name, $limit = 255)
     {
-        // TODO: Implement primary() method.
+        return $this->app->primary($name, $limit);
     }
 }
