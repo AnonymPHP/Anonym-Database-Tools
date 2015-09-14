@@ -52,6 +52,16 @@ class Table implements TableInterface
 
 
     /**
+     * register the default charset
+     *
+     * @param string $set
+     * @return $this
+     */
+    public function charset($set = 'utf8'){
+        $this->charset = $set;
+        return $this;
+    }
+    /**
      * register the table name
      *
      * @param string $name
