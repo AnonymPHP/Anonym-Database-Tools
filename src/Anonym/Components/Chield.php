@@ -51,6 +51,7 @@ class Chield
     private $app;
 
     /**
+     * @param Table $table
      * @param string $pattern
      * @param array $values
      */

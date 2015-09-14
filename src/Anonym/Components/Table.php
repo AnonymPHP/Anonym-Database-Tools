@@ -46,9 +46,8 @@ class Table
 
     public function text($name)
     {
-        return Blueprint::command($this,
-            $name, new Chield($this->patterns['text'], [$name]
-            ));
+        return Blueprint::command($name,
+            new Chield($this, $this->patterns['text'], [$name]));
     }
 
     /*
