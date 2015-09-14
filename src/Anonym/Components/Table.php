@@ -125,7 +125,7 @@ class Table implements TableInterface
         $content = '';
 
         foreach(Blueprint::getCommand() as $command){
-            $content .= $content->rende();
+            $content .= $command->rende();
         }
 
         return $content;

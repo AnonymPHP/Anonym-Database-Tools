@@ -9,5 +9,5 @@ $table = new \Anonym\Components\Tools\Table();
 $response = $table->text('aa')->defualt('aa')
                   ->varchar('aa');
 
-var_dump($response);
+var_dump($table->fetch());
 
