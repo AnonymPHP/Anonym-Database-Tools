@@ -26,7 +26,7 @@ class Table implements TableInterface
         'auto_increment' => '`%s` INT(%d) UNSIGNED AUTO_INCREMENT PRIMARY KEY',
         'int' => '`%s` INT(%d)',
         'varchar' => '`%s` VARCHAR(%d)',
-        'timestamp' => '`%s` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,',
+        'timestamp' => '`%s` TIMESTAMP',
         'date' => '`%s` DATE',
         'year' => '`%s` YEAR',
         'time' => '`%s` TIME',
