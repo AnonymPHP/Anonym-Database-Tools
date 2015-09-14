@@ -6,8 +6,8 @@ error_reporting(E_ALL);
 
 $table = new \Anonym\Components\Tools\Table();
 
-$response = $table->text('aa')
-    ->defualt('aa')
-    ->varchar('aa');
+$response = $table->text('aa')->defualt('aa')
+                  ->varchar('aa');
 
 var_dump($response);
+
