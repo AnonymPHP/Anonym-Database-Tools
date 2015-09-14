@@ -69,7 +69,7 @@ class Table implements TableInterface
      */
     public function text($name)
     {
-        return $this->addCommand('varchar', $this->madeArray($name));
+        return $this->addCommand('text', $this->madeArray($name));
     }
 
     /**
@@ -122,9 +122,11 @@ class Table implements TableInterface
      */
     public function fetch(){
 
-        $content = '';
+
+        $content = isset($this->table) ? sprintf($this->patterns['create'], $this->table) : '';
 
         foreach(Blueprint::getCommand() as $command){
+
             $content .= $command->rende();
         }
 
