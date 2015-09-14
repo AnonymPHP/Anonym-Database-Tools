@@ -64,7 +64,7 @@ class Table
      *
      * @return array
      */
-    private function madeArray($param1, $param2){
+    private function madeArray(){
         return func_get_args();
     }
 
