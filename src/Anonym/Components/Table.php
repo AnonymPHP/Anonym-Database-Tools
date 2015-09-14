@@ -115,6 +115,17 @@ class Table implements TableInterface
         return Blueprint::command(new Chield($this, $this->patterns[$type], $variables) );
     }
 
+    public function fetch(){
+
+        $content = '';
+
+        foreach(Blueprint::getCommand() as $command){
+            $content .= $content->rende();
+        }
+
+        return $content;
+    }
+
     /*
     public function fetch()
     {
