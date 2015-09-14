@@ -41,6 +41,10 @@ class Seeder
         } else {
             $instance = new $abstact;
         }
+
+        if (isset($this->command)) {
+            $instance->setCommand($this->command);
+        }
     }
 
     /**
