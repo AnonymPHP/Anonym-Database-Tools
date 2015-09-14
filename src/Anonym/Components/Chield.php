@@ -11,7 +11,7 @@
 namespace Anonym\Components\Tools;
 
 
-class Chield
+class Chield implements TableInterface
 {
 
     /**
