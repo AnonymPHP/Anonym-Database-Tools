@@ -77,4 +77,15 @@ class Chield
 
         return $this;
     }
+
+
+    /**
+     * rende parameters
+     *
+     *
+     * @return string
+     */
+    public function rende(){
+
+    }
 }
