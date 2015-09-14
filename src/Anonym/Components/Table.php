@@ -13,7 +13,7 @@ namespace Anonym\Components\Tools;
  * Class Table
  * @package Anonym\Components\Tools
  */
-class Table
+class Table implements TableInterface
 {
 
     /**
@@ -122,4 +122,60 @@ class Table
         return $string;
     }
     */
+    /**
+     * add a new integer command
+     *
+     * @param string $name
+     * @param int $limit
+     * @return Chield
+     */
+    public function int($name, $limit = 255)
+    {
+         return $this->addCommand('int', $this->madeArray($name, $limit));
+    }
+
+    /**
+     * add a new time string
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function time($name)
+    {
+        return $this->addCommand('time', $this->madeArray($name));
+    }
+
+    /**
+     * add a new timestamp column to mysql
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function timestamp($name)
+    {
+        return $this->addCommand('timestamp', $this->madeArray($name));
+    }
+
+    /**
+     * add a new year year column to mysql
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function year($name)
+    {
+        return $this->addCommand('year', $this->madeArray($name));
+    }
+
+    /**
+     * add a new auto_increment column to mysql
+     *
+     * @param string $name
+     * @param int $limit
+     * @return mixed
+     */
+    public function primary($name, $limit = 255)
+    {
+        return $this->addCommand('auto_increment', $this->madeArray($name, $limit));
+    }
 }
