@@ -175,7 +175,7 @@ class Chield implements TableInterface
      */
     public function timestamp($name)
     {
-        // TODO: Implement timestamp() method.
+        return $this->app->timestamp($name);
     }
 
     /**
