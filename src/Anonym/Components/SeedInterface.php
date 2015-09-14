@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Database\Tools;
+namespace Anonym\Components\Tools;
 
 /**
  * Interface SeedInterface
