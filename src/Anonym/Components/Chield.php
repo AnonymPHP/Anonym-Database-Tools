@@ -100,7 +100,7 @@ class Chield implements TableInterface
     public function rende(){
 
         $null = $this->null === false ? 'NOT NULL': 'NULL';
-        $default = $this->default ? sprintf("DEFAULT '%s'", strval($this->default));
+        $default = $this->default ? sprintf("DEFAULT '%s'", strval($this->default)) : '';
 
         $content = call_user_func_array('sprintf', array_merge($this->pattern, $this->values));
         return $content.' '.$null.$default;
