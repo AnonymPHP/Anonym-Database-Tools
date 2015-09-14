@@ -77,4 +77,23 @@ class Seeder
         return $this;
     }
 
+    /**
+     * @return Command
+     */
+    public function getCommand()
+    {
+        return $this->command;
+    }
+
+    /**
+     * @param Command $command
+     * @return Seeder
+     */
+    public function setCommand($command)
+    {
+        $this->command = $command;
+        return $this;
+    }
+
+
 }
