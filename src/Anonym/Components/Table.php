@@ -90,6 +90,7 @@ class Table implements TableInterface
     {
         $uniqid = $this->uniqid();
 
+
         $this->selected['patterns'][$uniqid] = 'timestamp';
         $this->selected['values']['timestamp'][$uniqid] = [$tableName, $this->null];
         return $this;

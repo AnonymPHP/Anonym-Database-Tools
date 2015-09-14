@@ -9,4 +9,4 @@ $response = $table->varchar('aa')
     ->null('NOT NULL');
 
 
-var_dump($response->fetch());
+var_dump($response);
