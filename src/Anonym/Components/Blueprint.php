@@ -25,8 +25,9 @@ class Blueprint
     private static $command;
 
     /**
-     * @param $name
-     * @param $value
+     * @param mixed $name
+     * @param mixed $value
+     * @return Chield
      */
     public static function command($name, $value)
     {
