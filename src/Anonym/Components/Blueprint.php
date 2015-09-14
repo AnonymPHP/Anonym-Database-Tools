@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Database\Tools\Backup;
+namespace Anonym\Components\Tools;
 
 /**
  * Class Blueprint

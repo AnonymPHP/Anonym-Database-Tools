@@ -7,8 +7,7 @@
  */
 
 namespace Anonym\Components\Tools;
-use Anonym\Database\Tools\Backup\Blueprint;
-use Anonym\Database\Tools\Backup\Chield;
+
 
 /**
  * Class Table

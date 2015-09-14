@@ -8,7 +8,7 @@
  * Thanks for using
  */
 
-namespace Anonym\Database\Tools\Backup;
+namespace Anonym\Components\Tools;
 
 
 class Chield
@@ -44,11 +44,19 @@ class Chield
     private $values;
 
     /**
+     * the instance of table
+     *
+     * @var Table
+     */
+    private $app;
+
+    /**
      * @param string $pattern
      * @param array $values
      */
-    public function __construct($pattern, array $values = [])
+    public function __construct(Table $table, $pattern, array $values = [])
     {
+        $this->app = $table;
         $this->pattern = $pattern;
         $this->values = $values;
     }
@@ -87,5 +95,14 @@ class Chield
      */
     public function rende(){
 
+    }
+
+    /**
+     * @param string $name
+     * @param array $method
+     * @return mixed
+     */
+    public function __call($name, $method){
+        return call_user_func_array([$this->app, $name], $method);
     }
 }
