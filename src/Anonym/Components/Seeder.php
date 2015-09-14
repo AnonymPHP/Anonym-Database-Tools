@@ -25,14 +25,22 @@ class Seeder
     protected $container;
 
     /**
+     * create a new instance
      *
-     * @var string
+     * @param Container|null $container
      */
-    protected $namespace = 'App\\Database\\Seeds\\';
-
     public function __construct(Container $container = null)
     {
+        $this->setContainer($container);
+    }
 
+    public function resolve($abstact)
+    {
+        if (isset($this->container)) {
+            $instance = $this->container->make($abstact);
+        } else {
+            $instance = new $abstact;
+        }
     }
 
     /**
