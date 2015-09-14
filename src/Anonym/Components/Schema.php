@@ -24,13 +24,6 @@ class Schema
      */
     private static $connection;
 
-    /**
-     * Tablo yöneticisini tutar
-     *
-     * @var Table
-     */
-    private $table;
-
 
     /**
      * Sınıfı başlatır
@@ -38,7 +31,6 @@ class Schema
      */
     public function __construct(Base $base)
     {
-        $this->table = new Table();
 
         static::setConnection($base->getConnection());
 
@@ -53,14 +45,14 @@ class Schema
      */
     public function create($tableName = '', callable $callback)
     {
-        $table = $this->table;
-        $table->create($tableName);
 
-        // çağrı yapılıyor
+        $table = (new Table())->create($tableName);
         $response = $callback($table);
 
         if ($response instanceof TableInterface) {
             $string = $response->fetch();
+
+            Blueprint::setCommand([]);
             return static::getConnection()->query($string);
 
         } else {
