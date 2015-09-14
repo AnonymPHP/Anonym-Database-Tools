@@ -11,7 +11,11 @@
 namespace Anonym\Database\Tools\Backup;
 
 
-class Seeder
+abstract class Seeder
 {
+
+    abstract public function run();
+
+
 
 }
