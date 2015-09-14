@@ -49,7 +49,7 @@ interface  TableInterface
      *
      * @param string $name
      * @param int $limit
-     * @return mixed
+     * @return Chield
      */
     public function int($name, $limit = 255);
 
@@ -57,10 +57,24 @@ interface  TableInterface
      * add a new time string
      *
      * @param string $name
-     * @return mixed
+     * @return Chield
      */
     public function time($name);
 
 
+    /**
+     * add a new timestamp column to mysql
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function timestamp($name);
 
+    /**
+     * add a new year timestamp column to mysql
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function year($name);
 }
