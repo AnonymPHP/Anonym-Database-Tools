@@ -226,4 +226,14 @@ class Table implements TableInterface
     {
         return $this->addCommand('auto_increment', $this->madeArray($name, $limit));
     }
+
+    /**
+     * add a new time stamp with CURRENT_TIMESTAMP
+     *
+     * @param string $name
+     * @return Chield
+     */
+    public function current($name){
+        return $this->addCommand('current', $this->madeArray($name));
+    }
 }
