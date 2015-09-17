@@ -34,7 +34,7 @@ class MigrationManager
      */
     public function createName($name = '')
     {
-        return MIGRATION  . date('h_i_s,-j_m_y').$name . '.php';
+        return MIGRATION  .$name . '.php';
     }
 
     /**
