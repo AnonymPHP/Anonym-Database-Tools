@@ -56,7 +56,7 @@ class Schema
             return static::getConnection()->query($string);
 
         } else {
-            throw new Exception('%s %s den dönen veri bir TableInterface değil', __CLASS__, __FUNCTION__);
+            throw new Exception('%s %s den dönen veri bir TableInterface değil');
         }
     }
 
